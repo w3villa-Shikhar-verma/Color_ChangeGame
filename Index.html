@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color_Change</title>
+    <style>
+      .back {
+        width: 20rem;
+        height: 20rem;
+        background-color: antiquewhite;
+        border: 2px solid black;
+        box-shadow: 8px 15px 52px gray;
+        border-radius: 50%;
+        margin: 0 auto;
+        margin-top: 5rem;
+      }
+      button {
+        border-radius: 20px;
+        transition: 0.5s;
+      }
+      button:hover {
+        transform: translateY(-1px);
+      }
+
+      .color {
+        gap: 1rem;
+        margin: 36px auto;
+        width: 20%;
+        height: inherit;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+      }
+      h1 {
+        color: rgb(41, 30, 30);
+        text-align: center;
+        letter-spacing: 0.2rem;
+        text-shadow: 10px 10px 5px gray;
+      }
+      span {
+        color: rgb(0, 30, 255);
+      }
+      #xyz {
+        color: black;
+      }
+    </style>
+  </head>
+  <body style="background-color: rgba(104, 182, 216, 0.538)">
+    <h1>
+      <i>Change color</i> <span>inside<span id="xyz">-</span>circle</span>
+    </h1>
+    <div class="back"></div>
+
+    <div class="color" id="colorButtons">
+      <button value="orange">Orange</button>
+      <button value="pink">Pink</button>
+      <button value="yellow">Yellow</button>
+      <button value="black">Black</button>
+      <button value="blue">Blue</button>
+      <button value="gold">Golden</button>
+      <button value="green">Green</button>
+      <button value="purple">Purple</button>
+      <button value="red">Red</button>
+      <button value="brown">Brown</button>
+    </div>
+  </body>
+  <script>
+    document
+      .getElementById("colorButtons")
+      .addEventListener("click", function (event) {
+        if (event.target.tagName === "BUTTON") {
+          document.querySelector(".back").style.backgroundColor =
+            event.target.value;
+        }
+      });
+    let btn = document.querySelectorAll("button");
+    btn.forEach(function (button) {
+      // console.log("hi");
+      button.addEventListener("click", function (e) {
+        console.log(e.target.tagName);
+        if (e.target.tagName) {
+          button.style.backgroundColor = e.target.value;
+        }
+      });
+    });
+  </script>
+</html>
